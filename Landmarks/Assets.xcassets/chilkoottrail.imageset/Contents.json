@@ -1,11 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "chilkoottrail@2x 2.jpg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "chilkoottrail@2x.jpg",
       "idiom" : "universal",
       "scale" : "2x"
     },
