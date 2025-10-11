@@ -11,8 +11,8 @@ struct LandmarkDetail: View {
     @Environment(ModelData.self) var modelData
     var landmark: Landmark
     
-    var landmarkIndex: Int {
-           modelData.landmarks.firstIndex(where: { $0.id == landmark.id })!
+    var landmarkIndex: Int? {
+           modelData.landmarks.firstIndex(where: { $0.id == landmark.id })
     }
     
     var body: some View {
@@ -22,7 +22,7 @@ struct LandmarkDetail: View {
             MapView(coordinate: landmark.locationCoordinate)
                 .frame(height: 300)
             
-            CircleImage(image: landmark.image)
+            CircleImage(image: landmark.image,size: 250)
                 .offset(y: -130)
                 .padding(.bottom,-130)
             
@@ -30,7 +30,9 @@ struct LandmarkDetail: View {
                 HStack {
                     Text(landmark.name)
                         .font(.title)
-                    FavoriteButton(isSet: $modelData.landmarks[landmarkIndex].isFavorite)
+                    if let idx = landmarkIndex {
+                        FavoriteButton(isSet: $modelData.landmarks[idx].isFavorite)
+                    }
                 }
                 HStack {
                     Text(landmark.park)

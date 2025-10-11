@@ -16,13 +16,21 @@ enum DataLoadError: Error {
 @Observable
 class ModelData {
     var landmarks: [Landmark] = []
-
+    var hikes: [Hike] = []
+    var profile = Profile.default
+    
     init() {
         do {
             self.landmarks = try load("landmarkData.json")
         } catch {
             print("ModelData load error:", error)
             self.landmarks = []
+        }
+        do {
+            self.hikes = try load("hikeData.json")
+        } catch {
+            print("ModelData load error:", error)
+            self.hikes = []
         }
     }
 
