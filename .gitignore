@@ -1,0 +1,8 @@
+# Xcode user-specific
+xcuserdata/
+*.xcuserstate
+
+# Genel gereksizler
+.DS_Store
+DerivedData/
+build/
